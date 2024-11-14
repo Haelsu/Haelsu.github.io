@@ -14,8 +14,7 @@
       packages = ['numpy']
     </py-config>
     <pyscript>
-      import numpy as np
-      selection = np.random.randint(0, 100, 1)[0]
+      
     </pyscript>
     <form>
       <label for = "guess">Guess:</label><input name = "guess" id = "guess">
@@ -24,6 +23,8 @@
     </form>
 
     <py-script>
+      import numpy as np
+      selection = np.random.randint(0, 100, 1)[0]
       from pyscript import when
       @when("click", selector = "#submit")
       def check_guess():
