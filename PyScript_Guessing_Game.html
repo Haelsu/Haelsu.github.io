@@ -26,8 +26,6 @@
       import numpy as np
       selection = np.random.randint(0, 100, 1)[0]
       from pyscript import Element
-
-      Element("submit").element.onclick = check_guess
       
       def check_guess():
         user_guess = int(Element("guess").value)
@@ -38,6 +36,8 @@
           result.write("Try again! Your guess was too high.")
         else:
           result.write("Try again. Your guess was too low.")
+      
+      Element("submit").element.onclick = check_guess
       
     </py-script>
   </body>
