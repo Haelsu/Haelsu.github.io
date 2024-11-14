@@ -13,16 +13,16 @@
     <py-config>
       packages = ['numpy']
     </py-config>
-    <pyscript>
-      
-    </pyscript>
+
     <form>
-      <label for = "guess">Guess:</label><input name = "guess" id = "guess">
+      <label for = "guess">Guess:</label>
+      <input name = "guess" id = "guess">
       <button type = "button" id = "submit">Check Guess</button>
       <label for = "result">Result:</label><div name = "result" id = "result"></div>
     </form>
 
     <py-script>
+      
       import numpy as np
       selection = np.random.randint(0, 100, 1)[0]
       from pyscript import when
