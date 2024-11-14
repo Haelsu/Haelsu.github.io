@@ -13,21 +13,19 @@
     <py-config>
       packages = ['numpy']
     </py-config>
-
+    <pyscript>
+      import numpy as np
+      selection = np.random.randint(0, 100, 1)[0]
+    </pyscript>
     <form>
-      <label for = "guess">Guess:</label>
-      <input name = "guess" id = "guess">
+      <label for = "guess">Guess:</label><input name = "guess" id = "guess">
       <button type = "button" id = "submit">Check Guess</button>
       <label for = "result">Result:</label><div name = "result" id = "result"></div>
     </form>
-
     <py-script>
-      
-      import numpy as np
-      selection = np.random.randint(0, 100, 1)[0]
-      from pyscript import Element
-      
-      def check_guess(event = none):
+      from pyscript import when
+      @when("click", selector = "#submit")
+      def check_guess():
         user_guess = int(Element("guess").value)
         result = Element("result")
         if user_guess == selection:
@@ -36,9 +34,6 @@
           result.write("Try again! Your guess was too high.")
         else:
           result.write("Try again. Your guess was too low.")
-      
-      Element("submit").element.addEventListener("click", check_guess)
-
       
     </py-script>
   </body>
